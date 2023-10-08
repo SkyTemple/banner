@@ -1,0 +1,47 @@
+name: Check and Publish
+
+on:
+  push:
+    branches:
+      - min
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    name: Check
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+      - name: Setup virtual env
+        working-directory: tool
+        run: |
+          python -m venv .venv
+          . ./.venv/bin/activate
+          pip install -r requirements.txt
+      - name: Run check
+        run: |
+          . ./tool/.venv/bin/activate
+          ./tool/check.py
+      
+  publish:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    needs:
+      - check
+    runs-on: [self-hosted, banner]
+    name: Publish
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+      - name: Setup virtual env
+        working-directory: tool
+        run: |
+          python -m venv .venv
+          . ./.venv/bin/activate
+          pip install -r requirements.txt
+      - name: Run publish
+        run: |
+          . ./tool/.venv/bin/activate
+          ./tool/update-products-yml.py
