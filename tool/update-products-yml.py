@@ -5,8 +5,8 @@ import subprocess
 import sys
 from strictyaml import load
 
-PATH_PRODUCTS_YML = "/tmp/sandbox/skytemple-dist/products.yml"
-PATH_BANNERS = "/tmp/sandbox/skytemple-dist/banners"
+PATH_PRODUCTS_YML = "/skytemple-dist/products.yml"
+PATH_BANNERS = "/skytemple-dist/banners"
 PREFIX_PUBLIC_BANNERS = "https://skytemple-dist.s3.eu-central-1.wasabisys.com/banners"
 
 
