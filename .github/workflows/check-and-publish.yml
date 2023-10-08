@@ -3,7 +3,7 @@ name: Check and Publish
 on:
   push:
     branches:
-      - min
+      - main
   pull_request:
 
 jobs:
