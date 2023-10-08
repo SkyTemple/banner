@@ -13,6 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
+        with:
+          python-version: "3.11"
         uses: actions/setup-python@v4
       - name: Setup virtual env
         working-directory: tool
@@ -34,6 +36,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
+        with:
+          python-version: "3.11"
         uses: actions/setup-python@v4
       - name: Setup virtual env
         working-directory: tool
