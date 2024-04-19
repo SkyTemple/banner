@@ -31,7 +31,7 @@ jobs:
     if: ${{ github.ref == 'refs/heads/main' }}
     needs:
       - check
-    runs-on: [self-hosted, banner]
+    runs-on: [self-hosted, skytemple-dist]
     name: Publish
     steps:
       - uses: actions/checkout@v4
@@ -48,4 +48,8 @@ jobs:
       - name: Run publish
         run: |
           . ./tool/.venv/bin/activate
+          mkdir out/banners -p
+          get.py products.yml out/products.yml
           ./tool/update-products-yml.py
+          dist.py out/products.yml products.yml
+          dist.py out/banners banners
