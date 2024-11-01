@@ -13,7 +13,7 @@ Clicking on it opens the link.
 To submit a new banner, open a Pull Request where `enable` is changed to "1" and `banner.png` and `banner_url`
 contain the banner and URL you want to use.
 
-Yor banner must be 580x126px PNG.
+Your banner must be 580x126px PNG.
 
 # Using the banner
 You can use this banner in a SkyTemple, PMDCollab or related project using the following URLs:
